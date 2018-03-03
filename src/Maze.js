@@ -5,31 +5,31 @@ import calcPath from "./functions/pathfinder"
 import * as _ from "lodash"
 
 const defaultSquaresState = [
-    { color: "red" },
-    { color: "red", blocked: true },
-    { color: "red", blocked: true },
-    { color: "red" },
-    { color: "red" },
-    { color: "red", blocked: true },
-    { color: "red" },
-    { color: "red" },
-    { color: "red" },
-    { color: "red" },
-    { color: "red" },
-    { color: "red", blocked: true },
-    { color: "red" },
-    { color: "red" },
-    { color: "red" },
-    { color: "red" },
-    { color: "red", blocked: true },
-    { color: "red" },
-    { color: "red" },
-    { color: "red" },
-    { color: "red" },
-    { color: "red" },
-    { color: "red" },
-    { color: "red" },
-    { color: "red" }
+    { color: "#c0c0c0" },
+    { color: "#c0c0c0", blocked: true },
+    { color: "#c0c0c0", blocked: true },
+    { color: "#c0c0c0" },
+    { color: "#c0c0c0" },
+    { color: "#c0c0c0", blocked: true },
+    { color: "#c0c0c0" },
+    { color: "#c0c0c0" },
+    { color: "#c0c0c0" },
+    { color: "#c0c0c0" },
+    { color: "#c0c0c0" },
+    { color: "#c0c0c0", blocked: true },
+    { color: "#c0c0c0" },
+    { color: "#c0c0c0" },
+    { color: "#c0c0c0" },
+    { color: "#c0c0c0" },
+    { color: "#c0c0c0", blocked: true },
+    { color: "#c0c0c0" },
+    { color: "#c0c0c0" },
+    { color: "#c0c0c0" },
+    { color: "#c0c0c0" },
+    { color: "#c0c0c0" },
+    { color: "#c0c0c0" },
+    { color: "#c0c0c0" },
+    { color: "#c0c0c0" }
 ]
 
 export default class Maze extends React.Component {
@@ -71,7 +71,7 @@ export default class Maze extends React.Component {
         } else if (path.includes(i)) {
             return "green"
         } else {
-            return "red"
+            return "#c0c0c0"
         }
     }
 
@@ -107,4 +107,5 @@ const SquaresWrapper = styled.div`
     width: 500px;
     margin: auto;
     border: dotted 5px black;
+    transform: scaleY(0.7) rotate(45deg) ;
 `
