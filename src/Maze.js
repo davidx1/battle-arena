@@ -5,31 +5,31 @@ import calcPath from "./functions/pathfinder"
 import * as _ from "lodash"
 
 const defaultSquaresState = [
-    { color: "#c0c0c0" },
-    { color: "#c0c0c0", blocked: true },
-    { color: "#c0c0c0", blocked: true },
-    { color: "#c0c0c0" },
-    { color: "#c0c0c0" },
-    { color: "#c0c0c0", blocked: true },
-    { color: "#c0c0c0" },
-    { color: "#c0c0c0" },
-    { color: "#c0c0c0" },
-    { color: "#c0c0c0" },
-    { color: "#c0c0c0" },
-    { color: "#c0c0c0", blocked: true },
-    { color: "#c0c0c0" },
-    { color: "#c0c0c0" },
-    { color: "#c0c0c0" },
-    { color: "#c0c0c0" },
-    { color: "#c0c0c0", blocked: true },
-    { color: "#c0c0c0" },
-    { color: "#c0c0c0" },
-    { color: "#c0c0c0" },
-    { color: "#c0c0c0" },
-    { color: "#c0c0c0" },
-    { color: "#c0c0c0" },
-    { color: "#c0c0c0" },
-    { color: "#c0c0c0" }
+    { character: "bob" },
+    { terrain: "blocked", },
+    { terrain: "blocked" },
+    {},
+    {},
+    { terrain: "blocked" },
+    {},
+    {},
+    {},
+    {},
+    {},
+    { terrain: "blocked" },
+    {},
+    {},
+    {},
+    {},
+    { terrain: "blocked" },
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
 ]
 
 export default class Maze extends React.Component {
@@ -61,20 +61,6 @@ export default class Maze extends React.Component {
         })
     }
 
-    setColor = (path, i) => {
-        if (this.state.squares[i].blocked) {
-            return "black"
-        } else if (i === this.state.startSquare) {
-            return "yellow"
-        } else if (i === this.state.endSquare) {
-            return "blue"
-        } else if (path.includes(i)) {
-            return "green"
-        } else {
-            return "#c0c0c0"
-        }
-    }
-
     render() {
         const path = calcPath(
             this.state.squares,
@@ -88,8 +74,11 @@ export default class Maze extends React.Component {
                     {this.state.squares.map((s, i) => (
                         <Square
                             key={i}
+                            character={s.character}
+                            terrain={s.terrain}
+                            highlight={path.includes(i)}
+                            selected={i === this.state.startSquare || i === this.state.endSquare}
                             onClick={() => this.selectSquare(i)}
-                            color={() => this.setColor(path, i)}
                         />
                     ))}
                 </SquaresWrapper>
@@ -107,5 +96,7 @@ const SquaresWrapper = styled.div`
     width: 500px;
     margin: auto;
     border: dotted 5px black;
-    transform: scaleY(0.7) rotate(45deg) ;
 `
+
+//    transform: scaleY(0.7) rotate(45deg) ;
+
