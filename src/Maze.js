@@ -59,6 +59,7 @@ export default class Maze extends React.Component {
             startSquare: undefined,
             endSquare: undefined
         })
+
     }
 
     render() {
